@@ -2,37 +2,37 @@
 //BOOKS REDUCERS
 let defaultBooks = [
   {
-    id: 1,
+    _id: 1,
     title: 'Book 1',
     description: 'Book 1 Description',
     price: 19.99
   },
   {
-      id: 2,
+      _id: 2,
       title: 'Book 2',
       description: 'Book 2 Description',
       price: 29.99  
   },
   {
-    id: 3,
+    _id: 3,
     title: 'Book 3',
     description: 'Book 3 Description',
     price: 39.99
   },
   {
-      id: 4,
+      _id: 4,
       title: 'Book 4',
       description: 'Book 4 Description',
       price: 49.99  
   },
   {
-    id: 5,
+    _id: 5,
     title: 'Book 5',
     description: 'Book 5 Description',
     price: 59.99
   },
   {
-      id: 6,
+      _id: 6,
       title: 'Book 6',
       description: 'Book 6 Description',
       price: 69.99  
@@ -59,7 +59,7 @@ export function booksReducers(state = { books: defaultBooks }, action){
         // Determine at which index in books array is the book to be deleted
         const indexToDelete = currentBookToDelete.findIndex(
           function(book){
-            return book._id == action.payload;
+            return book._id == action.payload._id;
           }
         )
         //use slice to remove the book at the specified index

@@ -14,7 +14,8 @@ export function cartReducers(state={cart:[]}, action) {
         return {cart: [...state, ...action.payload]}
           break;
     case "UPDATE_CART":
-        return {...state,
+        return {
+          ...state,
           cart:action.payload,
           totalAmount: totals(action.payload).amount,
           totalQty: totals(action.payload).qty

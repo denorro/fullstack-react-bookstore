@@ -6,17 +6,20 @@ import {bindActionCreators} from 'redux';
 import {getBooks} from '../../actions/booksActions';
 import BookItem from './book-item';
 import BookForm from './book-form';
+import Cart from './cart';
 
 class BookList extends React.Component {
 
-
+    componentDidMount(){
+       this.props.getBooks();
+    }
 
     render(){        
         const bookList = this.props.books.map(function(book){
             return (
                 <BookItem 
-                    key={book.id}
-                    id={book.id}
+                    key={book._id}
+                    _id={book._id}
                     title={book.title}
                     description={book.description}
                     price={book.price} />
@@ -30,7 +33,8 @@ class BookList extends React.Component {
                 </div>
                 { this.props.msg &&
                     <div className="alert alert-info text-center" role="alert">{this.props.msg}</div>
-                }
+                }                
+                <Cart />                
                 <div className="row">
                     <div className="col-xs-12 col-sm-8">
                         <div className="row">
