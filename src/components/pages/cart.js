@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+
 class Cart extends React.Component{
     render(){
         if(this.props.cart[0]){
@@ -34,4 +35,4 @@ class Cart extends React.Component{
 function mapStateToProps(state){
     
 }
-export default Cart;
+export default connect(mapStateToProps)(Cart);

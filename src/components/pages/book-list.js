@@ -9,24 +9,8 @@ import BookForm from './book-form';
 
 class BookList extends React.Component {
 
-    componentDidMount(){
-        this.props.getBooks(
-            [
-                {
-                    id: 1,
-                    title: 'Book 1',
-                    description: 'Book 1',
-                    price: 19.99
-                },
-                {
-                    id: 2,
-                    title: 'Book 2',
-                    description: 'Book 2',
-                    price: 29.99  
-                }                  
-            ]
-        );
-    }
+
+
     render(){        
         const bookList = this.props.books.map(function(book){
             return (
@@ -38,11 +22,15 @@ class BookList extends React.Component {
                     price={book.price} />
             )
         })
+
         return(
             <div>
                 <div className="page-header">
-                    <h1>The React BookStore</h1>
+                    <h1 className="text-center">The React BookStore</h1>
                 </div>
+                { this.props.msg &&
+                    <div className="alert alert-info text-center" role="alert">{this.props.msg}</div>
+                }
                 <div className="row">
                     <div className="col-xs-12 col-sm-8">
                         <div className="row">
@@ -60,8 +48,10 @@ class BookList extends React.Component {
 
 //just return the data from the store
 function mapStateToProps(state){
-    return {
-        books: state.books.books
+    console.log('State: ', state);
+    return {        
+        books: state.books.books,
+        msg: state.books.msg
     }
 }
 
