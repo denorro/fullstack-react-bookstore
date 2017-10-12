@@ -7,10 +7,11 @@ export function addToCart(book){
     }
 }
 
-export function updateCart(book){
+export function updateCart(_id, unit){
     return {
         type: 'UPDATE_CART',
-        payload: book
+        _id: _id,
+        unit: unit
     }
 }
 

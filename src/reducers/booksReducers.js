@@ -83,7 +83,9 @@ export function booksReducers(state = { books: defaultBooks }, action){
         // This Log has the purpose to show you how newBookToUpdate looks like
         console.log("what is it newBookToUpdate", newBookToUpdate);
         //use slice to remove the book at the specified index, replace with the new object and concatenate witht he rest of items in the array
-        return {books: [...currentBookToUpdate.slice(0, indexToUpdate), newBookToUpdate, ...currentBookToUpdate.slice(indexToUpdate + 1)]}
+        return {
+          books: [...currentBookToUpdate.slice(0, indexToUpdate), newBookToUpdate, ...currentBookToUpdate.slice(indexToUpdate + 1)]
+        }
         break;
         default:
         break;

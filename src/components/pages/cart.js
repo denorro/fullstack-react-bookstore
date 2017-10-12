@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {deleteItem} from '../../actions/cartActions';
+import {deleteItem, updateCart} from '../../actions/cartActions';
 
 class Cart extends React.Component{
 
@@ -9,8 +9,17 @@ class Cart extends React.Component{
         super();
     }    
 
-    changeQty(_id, qty){
+    incrementQty(_id){
+        this.props.updateCart(_id, 1);
+    }
 
+    decrementQty(_id, qty){
+        if(qty > 1){
+            this.props.updateCart(_id, -1);
+        }
+        else {
+            this.deleteItem(_id);
+        }        
     }
 
     deleteItem(_id) {
@@ -48,17 +57,18 @@ class Cart extends React.Component{
                         />
                         <span style={{marginRight:'50px'}}>{cartItem.title}</span>
                         <span style={{marginRight:'50px'}}>${cartItem.price}</span>
-                        <span style={{marginRight:'50px'}}>
-                            <input type="number" 
-                                   className="form-control" 
-                                   min="0" step="1" 
-                                   value="1" 
-                                   ref="qty" 
-                                   style={{width:'75px', display:'inline-block'}} 
-                                   onChange={this.changeQty.bind(this, cartItem._id, this.refs.qty)} 
-                            />
-                        </span>
-                        <button className="btn btn-danger" onClick={this.deleteItem.bind(this, cartItem._id)}>Delete</button>
+                        <span style={{marginRight:'15px'}}>QTY: {cartItem.qty} </span>
+                        <div className="btn-group" role="group" style={{marginRight:'50px'}}>
+                            <button type="button" className="btn btn-default" onClick={this.incrementQty.bind(this, cartItem._id)}>
+                                <i className="glyphicon glyphicon-plus"></i>
+                            </button>
+                            <button type="button" className="btn btn-default" onClick={this.decrementQty.bind(this, cartItem._id, cartItem.qty)}>
+                                <i className="glyphicon glyphicon-minus"></i>
+                            </button>                             
+                        </div>
+                        <button className="btn btn-danger" onClick={this.deleteItem.bind(this, cartItem._id)}>
+                            <i className="glyphicon glyphicon-trash"></i><span> Delete</span>
+                         </button>
                     </div>
                 </div>
             )
@@ -86,7 +96,10 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({deleteItem}, dispatch)
-    
+    return bindActionCreators({
+        deleteItem:deleteItem,
+        updateCart:updateCart
+    }
+    , dispatch)    
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
