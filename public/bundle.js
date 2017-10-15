@@ -23595,35 +23595,27 @@ function booksReducers() {
   switch (action.type) {
     case "GET_BOOKS":
       return _extends({}, state, { books: [].concat(_toConsumableArray(state.books)) });
-      break;
+
     case "POST_BOOK":
       return _extends({}, state, { books: [].concat(_toConsumableArray(state.books), _toConsumableArray(action.payload)), msg: 'Saved! Click to continue', style: 'success', validation: 'success' });
-      break;
+
     case "POST_BOOK_REJECTED":
       return _extends({}, state, { msg: 'Please, try again', style: 'danger', validation: 'error' });
-      break;
+
     case "RESET_BUTTON":
       return _extends({}, state, { msg: null, style: 'primary', validation: null });
-      break;
+
     case "DELETE_BOOK":
-      // Create a copy of the current array of books
-      var currentBookToDelete = [].concat(_toConsumableArray(state.books));
-      // Determine at which index in books array is the book to be deleted
-      var indexToDelete = currentBookToDelete.findIndex(function (book) {
-        return book._id === action.payload._id;
-      });
-      //use slice to remove the book at the specified index
-      return { books: [].concat(_toConsumableArray(currentBookToDelete.slice(0, indexToDelete)), _toConsumableArray(currentBookToDelete.slice(indexToDelete + 1))) };
-      break;
+      var bookId = action.payload;
+      return { books: state.books.filter(function (book) {
+          return book._id !== bookId;
+        }) };
 
     case "UPDATE_BOOK":
-      // Create a copy of the current array of books
       var currentBookToUpdate = [].concat(_toConsumableArray(state.books));
-      // Determine at which index in books array is the book to be deleted
       var indexToUpdate = currentBookToUpdate.findIndex(function (book) {
         return book._id === action.payload._id;
       });
-      // Create a new book object with the new values and with the same array index of the item we want to replace. To achieve this we will use ...spread but we could use concat methos too
       var newBookToUpdate = _extends({}, currentBookToUpdate[indexToUpdate], {
         title: action.payload.title
         // This Log has the purpose to show you how newBookToUpdate looks like
