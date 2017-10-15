@@ -23667,12 +23667,16 @@ function cartReducers() {
     case "GET_CART":
       return _extends({}, state, {
         cart: action.payload,
-        totalAmount: totals(action.payload).amount,
+        totalAmount: totals(action.payload).price,
         totalQty: totals(action.payload).qty
       });
       break;
     case "ADD_TO_CART":
-      return { cart: [].concat(_toConsumableArray(state), _toConsumableArray(action.payload)) };
+      return _extends({}, state, {
+        cart: action.payload,
+        totalAmount: totals(action.payload).price,
+        totalQty: totals(action.payload).qty
+      });
       break;
     case "UPDATE_CART":
       var currentCartItems = [].concat(_toConsumableArray(state.cart));
@@ -23686,15 +23690,15 @@ function cartReducers() {
       var updatedCart = [].concat(_toConsumableArray(currentCartItems.slice(0, index)), [cartItemToUpdate], _toConsumableArray(currentCartItems.slice(index + 1)));
 
       return _extends({}, state, {
-        cart: updatedCart
-        //totalAmount: totals(action.payload).amount,
-        //totalQty: totals(action.payload).qty
+        cart: updatedCart,
+        totalAmount: totals(updatedCart).price,
+        totalQty: totals(updatedCart).qty
       });
       break;
     case "DELETE_CART_ITEM":
       return _extends({}, state, {
         cart: action.payload,
-        totalAmount: totals(action.payload).amount,
+        totalAmount: totals(action.payload).price,
         totalQty: totals(action.payload).qty
       });
       break;
@@ -23706,19 +23710,18 @@ function cartReducers() {
 function totals(payloadArr) {
 
   var totalAmount = payloadArr.map(function (cartArr) {
-    return cartArr.price * cartArr.quantity;
-  }).reduce(function (a, b) {
-    return a + b;
-  }, 0); //start summing from index0
-
-
-  var totalQty = payloadArr.map(function (qty) {
-    return qty.quantity;
+    return cartArr.price * cartArr.qty;
   }).reduce(function (a, b) {
     return a + b;
   }, 0);
 
-  return { amount: totalAmount.toFixed(2), qty: totalQty };
+  var totalQty = payloadArr.map(function (qty) {
+    return qty.qty;
+  }).reduce(function (a, b) {
+    return a + b;
+  }, 0);
+
+  return { price: totalAmount.toFixed(2), qty: totalQty };
 }
 
 /***/ }),
@@ -24281,8 +24284,14 @@ var Cart = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'span',
                                                 { style: { marginRight: '25px' } },
-                                                'Total Amount: ',
-                                                this.state.totalAmount
+                                                'Total Amount: $',
+                                                this.props.totalAmount
+                                            ),
+                                            _react2.default.createElement(
+                                                'span',
+                                                { style: { marginRight: '25px' } },
+                                                'Total Qty: ',
+                                                this.props.totalQty
                                             ),
                                             _react2.default.createElement(
                                                 'button',
@@ -24328,7 +24337,22 @@ var Cart = function (_React$Component) {
                                     'Checkout'
                                 )
                             ),
-                            _react2.default.createElement('div', { className: 'modal-body' }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'modal-body' },
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Total Amount: $',
+                                    this.props.totalAmount
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Total Qty: ',
+                                    this.props.totalAmount
+                                )
+                            ),
                             _react2.default.createElement(
                                 'div',
                                 { className: 'modal-footer' },
@@ -24360,7 +24384,11 @@ var Cart = function (_React$Component) {
 }(_react2.default.Component);
 
 function mapStateToProps(state) {
-    return { cart: state.cart.cart };
+    return {
+        cart: state.cart.cart,
+        totalAmount: state.cart.totalAmount,
+        totalQty: state.cart.totalQty
+    };
 }
 
 function mapDispatchToProps(dispatch) {

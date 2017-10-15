@@ -91,7 +91,8 @@ class Cart extends React.Component{
                                         <hr />
                                         <div className="panel panel-default">
                                             <div className="panel-body">
-                                                <span style={{marginRight:'25px'}}>Total Amount: {this.state.totalAmount}</span>
+                                                <span style={{marginRight:'25px'}}>Total Amount: ${this.props.totalAmount}</span>
+                                                <span style={{marginRight:'25px'}}>Total Qty: {this.props.totalQty}</span>
                                                 <button type="button" className="btn btn-success" data-toggle="modal" data-target="#myModal">
                                                     <i className="glyphicon glyphicon-usd"></i><span> Checkout</span>
                                                 </button>
@@ -110,7 +111,8 @@ class Cart extends React.Component{
                                     <h4 className="modal-title" id="myModalLabel">Checkout</h4>
                                 </div>
                             <div className="modal-body">
-                                
+                                <p>Total Amount: ${this.props.totalAmount}</p>
+                                <p>Total Qty: {this.props.totalAmount}</p>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-warning" data-dismiss="modal">Close</button>
@@ -124,7 +126,11 @@ class Cart extends React.Component{
     }    
 }
 function mapStateToProps(state){
-    return { cart : state.cart.cart }
+    return { 
+        cart : state.cart.cart,
+        totalAmount: state.cart.totalAmount,
+        totalQty: state.cart.totalQty
+     }
 }
 
 function mapDispatchToProps(dispatch){

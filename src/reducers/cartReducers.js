@@ -6,13 +6,18 @@ export function cartReducers(state={cart:[]}, action) {
     case "GET_CART":
         return{...state,
           cart:action.payload,
-          totalAmount:totals(action.payload).amount,
+          totalAmount:totals(action.payload).price,
           totalQty: totals(action.payload).qty
         }
         break;
     case "ADD_TO_CART":
-        return {cart: [...state, ...action.payload]}
-          break;
+        return {
+          ...state, 
+          cart: action.payload,
+          totalAmount:totals(action.payload).price,
+          totalQty: totals(action.payload).qty
+        }
+        break;
     case "UPDATE_CART":
         const currentCartItems = [...state.cart];
         const index = currentCartItems.findIndex(function(cartItem){
@@ -29,15 +34,15 @@ export function cartReducers(state={cart:[]}, action) {
 
         return {
           ...state,
-          cart: updatedCart
-          //totalAmount: totals(action.payload).amount,
-          //totalQty: totals(action.payload).qty
+          cart: updatedCart,
+          totalAmount: totals(updatedCart).price,
+          totalQty: totals(updatedCart).qty
         }
         break;
     case "DELETE_CART_ITEM":
     return {...state,
       cart:action.payload,
-      totalAmount: totals(action.payload).amount,
+      totalAmount: totals(action.payload).price,
       totalQty: totals(action.payload).qty
     }
     break;
@@ -49,17 +54,16 @@ export function cartReducers(state={cart:[]}, action) {
 export function totals(payloadArr){
 
   const totalAmount = payloadArr.map(function(cartArr){
-    return cartArr.price * cartArr.quantity;
-  }).reduce(function(a, b) {
-    return a + b;
-  }, 0); //start summing from index0
-
-
-  const totalQty = payloadArr.map(function(qty){
-    return qty.quantity;
+    return cartArr.price * cartArr.qty;
   }).reduce(function(a, b) {
     return a + b;
   }, 0);
 
-  return {amount:totalAmount.toFixed(2), qty:totalQty}
+  const totalQty = payloadArr.map(function(qty){
+    return qty.qty;
+  }).reduce(function(a, b) {
+    return a + b;
+  }, 0);
+
+  return {price:totalAmount.toFixed(2), qty:totalQty}
 }
