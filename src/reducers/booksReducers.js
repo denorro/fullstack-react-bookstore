@@ -57,11 +57,7 @@ export function booksReducers(state = { books: defaultBooks }, action){
         // Create a copy of the current array of books
         const currentBookToDelete = [...state.books]
         // Determine at which index in books array is the book to be deleted
-        const indexToDelete = currentBookToDelete.findIndex(
-          function(book){
-            return book._id == action.payload._id;
-          }
-        )
+        const indexToDelete = currentBookToDelete.findIndex(book => book._id === action.payload._id);
         //use slice to remove the book at the specified index
         return {books: [...currentBookToDelete.slice(0, indexToDelete), ...currentBookToDelete.slice(indexToDelete + 1)]}
         break;

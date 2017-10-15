@@ -965,10 +965,10 @@ function postBook(book) {
     };
 }
 
-function deleteBook(id) {
+function deleteBook(_id) {
     return {
         type: 'DELETE_BOOK',
-        payload: id
+        payload: _id
     };
 }
 
@@ -23610,7 +23610,7 @@ function booksReducers() {
       var currentBookToDelete = [].concat(_toConsumableArray(state.books));
       // Determine at which index in books array is the book to be deleted
       var indexToDelete = currentBookToDelete.findIndex(function (book) {
-        return book._id == action.payload._id;
+        return book._id === action.payload._id;
       });
       //use slice to remove the book at the specified index
       return { books: [].concat(_toConsumableArray(currentBookToDelete.slice(0, indexToDelete)), _toConsumableArray(currentBookToDelete.slice(indexToDelete + 1))) };
@@ -23767,10 +23767,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var BookList = function (_React$Component) {
     _inherits(BookList, _React$Component);
 
-    function BookList() {
+    function BookList(props) {
         _classCallCheck(this, BookList);
 
-        return _possibleConstructorReturn(this, (BookList.__proto__ || Object.getPrototypeOf(BookList)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (BookList.__proto__ || Object.getPrototypeOf(BookList)).call(this, props));
     }
 
     _createClass(BookList, [{
@@ -23787,7 +23787,8 @@ var BookList = function (_React$Component) {
                     _id: book._id,
                     title: book.title,
                     description: book.description,
-                    price: book.price });
+                    price: book.price
+                });
             });
 
             return _react2.default.createElement(
@@ -23837,7 +23838,6 @@ var BookList = function (_React$Component) {
 
 
 function mapStateToProps(state) {
-    console.log('State: ', state);
     return {
         books: state.books.books,
         msg: state.books.msg
@@ -23845,7 +23845,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)({ getBooks: _booksActions.getBooks }, dispatch);
+    return (0, _redux.bindActionCreators)({
+        getBooks: _booksActions.getBooks
+    }, dispatch);
 }
 //connects component to the store
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(BookList);
@@ -23886,18 +23888,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var BookItem = function (_React$Component) {
     _inherits(BookItem, _React$Component);
 
-    function BookItem() {
-        var _ref;
-
-        var _temp, _this, _ret;
-
+    function BookItem(props) {
         _classCallCheck(this, BookItem);
 
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
+        var _this = _possibleConstructorReturn(this, (BookItem.__proto__ || Object.getPrototypeOf(BookItem)).call(this, props));
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BookItem.__proto__ || Object.getPrototypeOf(BookItem)).call.apply(_ref, [this].concat(args))), _this), _this.handleCart = function () {
+        _this.handleCart = function () {
             var book = [].concat(_toConsumableArray(_this.props.cart), [{
                 _id: _this.props._id,
                 title: _this.props.title,
@@ -23918,7 +23914,9 @@ var BookItem = function (_React$Component) {
             } else {
                 _this.props.addToCart(book);
             }
-        }, _temp), _possibleConstructorReturn(_this, _ret);
+        };
+
+        return _this;
     }
 
     _createClass(BookItem, [{
@@ -23953,6 +23951,16 @@ var BookItem = function (_React$Component) {
                             'span',
                             null,
                             ' Add To Cart'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-danger btn-block' },
+                        _react2.default.createElement('i', { className: 'glyphicon glyphicon-trash' }),
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            ' Delete Book'
                         )
                     )
                 )
@@ -24130,7 +24138,12 @@ var Cart = function (_React$Component) {
     function Cart() {
         _classCallCheck(this, Cart);
 
-        return _possibleConstructorReturn(this, (Cart.__proto__ || Object.getPrototypeOf(Cart)).call(this));
+        var _this = _possibleConstructorReturn(this, (Cart.__proto__ || Object.getPrototypeOf(Cart)).call(this));
+
+        _this.state = {
+            totalAmount: 69.99
+        };
+        return _this;
     }
 
     _createClass(Cart, [{
@@ -24232,29 +24245,109 @@ var Cart = function (_React$Component) {
             }, this);
             return _react2.default.createElement(
                 'div',
-                { className: 'well' },
+                null,
                 _react2.default.createElement(
                     'div',
-                    { className: 'row' },
+                    { className: 'well' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-12' },
+                        { className: 'row' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'panel panel-primary' },
+                            { className: 'col-xs-12' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'panel-heading' },
+                                { className: 'panel panel-primary' },
                                 _react2.default.createElement(
-                                    'h2',
-                                    { className: 'panel-title text-center' },
-                                    'Cart Items'
+                                    'div',
+                                    { className: 'panel-heading' },
+                                    _react2.default.createElement(
+                                        'h2',
+                                        { className: 'panel-title text-center' },
+                                        'Cart Items'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'panel-body' },
+                                    cartItemsList,
+                                    _react2.default.createElement('hr', null),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'panel panel-default' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'panel-body' },
+                                            _react2.default.createElement(
+                                                'span',
+                                                { style: { marginRight: '25px' } },
+                                                'Total Amount: ',
+                                                this.state.totalAmount
+                                            ),
+                                            _react2.default.createElement(
+                                                'button',
+                                                { type: 'button', className: 'btn btn-success', 'data-toggle': 'modal', 'data-target': '#myModal' },
+                                                _react2.default.createElement('i', { className: 'glyphicon glyphicon-usd' }),
+                                                _react2.default.createElement(
+                                                    'span',
+                                                    null,
+                                                    ' Checkout'
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'modal fade', id: 'myModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-dialog', role: 'document' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-content' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'modal-header' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
+                                    _react2.default.createElement(
+                                        'span',
+                                        { 'aria-hidden': 'true' },
+                                        '\xD7'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'h4',
+                                    { className: 'modal-title', id: 'myModalLabel' },
+                                    'Checkout'
                                 )
                             ),
+                            _react2.default.createElement('div', { className: 'modal-body' }),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'panel-body' },
-                                cartItemsList
+                                { className: 'modal-footer' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'btn btn-warning', 'data-dismiss': 'modal' },
+                                    'Close'
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'btn btn-primary' },
+                                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-usd' }),
+                                    ' ',
+                                    _react2.default.createElement(
+                                        'span',
+                                        null,
+                                        'Buy'
+                                    )
+                                )
                             )
                         )
                     )

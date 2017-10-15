@@ -7,6 +7,9 @@ class Cart extends React.Component{
 
     constructor(){
         super();
+        this.state = {
+            totalAmount: 69.99
+        }
     }    
 
     incrementQty(_id){
@@ -21,6 +24,8 @@ class Cart extends React.Component{
             this.deleteItem(_id);
         }        
     }
+
+
 
     deleteItem(_id) {
         const cartCopy = this.props.cart;
@@ -73,21 +78,48 @@ class Cart extends React.Component{
                 </div>
             )
         }, this);
-        return(            
-                <div className="well">
-                    <div className="row">
-                        <div className="col-xs-12">
-                            <div className="panel panel-primary">
-                                <div className="panel-heading">
-                                    <h2 className="panel-title text-center">Cart Items</h2>
-                                </div>
-                                <div className="panel-body">
-                                    {cartItemsList}
+        return( <div>           
+                    <div className="well">
+                        <div className="row">
+                            <div className="col-xs-12">
+                                <div className="panel panel-primary">
+                                    <div className="panel-heading">
+                                        <h2 className="panel-title text-center">Cart Items</h2>
+                                    </div>
+                                    <div className="panel-body">
+                                        {cartItemsList}
+                                        <hr />
+                                        <div className="panel panel-default">
+                                            <div className="panel-body">
+                                                <span style={{marginRight:'25px'}}>Total Amount: {this.state.totalAmount}</span>
+                                                <button type="button" className="btn btn-success" data-toggle="modal" data-target="#myModal">
+                                                    <i className="glyphicon glyphicon-usd"></i><span> Checkout</span>
+                                                </button>
+                                            </div>                                    
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 className="modal-title" id="myModalLabel">Checkout</h4>
+                                </div>
+                            <div className="modal-body">
+                                
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-warning" data-dismiss="modal">Close</button>
+                                <button type="button" className="btn btn-primary"><i className="glyphicon glyphicon-usd"></i> <span>Buy</span></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+              </div>
             )             
     }    
 }

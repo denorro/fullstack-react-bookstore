@@ -5,6 +5,10 @@ import {addToCart, updateCart} from '../../actions/cartActions';
 
 class BookItem extends React.Component{
 
+    constructor(props){
+        super(props);
+    }
+
     handleCart = () => {
         const book = [...this.props.cart, {
             _id: this.props._id,
@@ -29,7 +33,7 @@ class BookItem extends React.Component{
             this.props.addToCart(book);
         }        
     }
-
+    
     render(){
         return(
             <div className="col-xs-12 col-md-6" key={this.props.id}>
@@ -40,6 +44,10 @@ class BookItem extends React.Component{
                     <button className="btn btn-success btn-block" onClick={this.handleCart}>
                         <i className="glyphicon glyphicon-shopping-cart"></i>
                         <span> Add To Cart</span>
+                    </button>
+                    <button className="btn btn-danger btn-block">
+                        <i className="glyphicon glyphicon-trash"></i>
+                        <span> Delete Book</span>
                     </button>
                 </div>                    
             </div>
@@ -57,7 +65,7 @@ function mapDispatchToProps(dispatch){
     return bindActionCreators(
         {
             addToCart: addToCart,
-            updateCart: updateCart
+            updateCart: updateCart,
         }
         , dispatch);
 }

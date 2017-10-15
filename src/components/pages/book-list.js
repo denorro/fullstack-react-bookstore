@@ -10,6 +10,10 @@ import Cart from './cart';
 
 class BookList extends React.Component {
 
+    constructor(props){
+        super(props);
+    }
+
     componentDidMount(){
        this.props.getBooks();
     }
@@ -22,9 +26,10 @@ class BookList extends React.Component {
                     _id={book._id}
                     title={book.title}
                     description={book.description}
-                    price={book.price} />
+                    price={book.price} 
+                />
             )
-        })
+        });
 
         return(
             <div>
@@ -52,7 +57,6 @@ class BookList extends React.Component {
 
 //just return the data from the store
 function mapStateToProps(state){
-    console.log('State: ', state);
     return {        
         books: state.books.books,
         msg: state.books.msg
@@ -60,7 +64,10 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({getBooks: getBooks}, dispatch);
+    return bindActionCreators({
+        getBooks: getBooks,
+    }
+    , dispatch);
 }
 //connects component to the store
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);
