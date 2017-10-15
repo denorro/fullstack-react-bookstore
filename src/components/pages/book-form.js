@@ -5,7 +5,7 @@ import {postBook} from '../../actions/booksActions';
 import {findDOMNode} from 'react-dom';
 class BookForm extends React.Component{
 
-    handleSubmit = () =>{
+    handleSubmit = () => {
         const book = [
             {
                 title: findDOMNode(this.refs.title).value,
@@ -15,6 +15,7 @@ class BookForm extends React.Component{
         ];
         this.props.postBook(book);
     }
+    
     render(){
         return(
             <form className="well">

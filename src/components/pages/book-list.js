@@ -3,7 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getBooks} from '../../actions/booksActions';
+import {getBooks, deleteBook} from '../../actions/booksActions';
 import BookItem from './book-item';
 import BookForm from './book-form';
 import Cart from './cart';
@@ -12,10 +12,15 @@ class BookList extends React.Component {
 
     constructor(props){
         super(props);
+        this.deleteBookItem = this.deleteBookItem.bind(this);
     }
 
     componentDidMount(){
        this.props.getBooks();
+    }
+
+    deleteBookItem(_id){
+        this.props.deleteBook(_id);
     }
 
     render(){        
@@ -27,9 +32,10 @@ class BookList extends React.Component {
                     title={book.title}
                     description={book.description}
                     price={book.price} 
+                    deleteBookItem={this.deleteBookItem}
                 />
             )
-        });
+        }, this);
 
         return(
             <div>
@@ -66,6 +72,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
         getBooks: getBooks,
+        deleteBook: deleteBook
     }
     , dispatch);
 }

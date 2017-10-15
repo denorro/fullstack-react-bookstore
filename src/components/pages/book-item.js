@@ -7,6 +7,12 @@ class BookItem extends React.Component{
 
     constructor(props){
         super(props);
+        this.deleteBookItem = this.deleteBookItem.bind(this);
+    }
+
+    deleteBookItem(){
+        const index = this.props._id;
+        this.props.deleteBookItem(index);
     }
 
     handleCart = () => {
@@ -36,7 +42,7 @@ class BookItem extends React.Component{
     
     render(){
         return(
-            <div className="col-xs-12 col-md-6" key={this.props.id}>
+            <div className="col-xs-12 col-md-6" key={this.props._id}>
                 <div className="well">
                     <h2 className="text-center">{this.props.title}</h2>
                     <h2 className="text-center">{this.props.description}</h2>
@@ -45,7 +51,7 @@ class BookItem extends React.Component{
                         <i className="glyphicon glyphicon-shopping-cart"></i>
                         <span> Add To Cart</span>
                     </button>
-                    <button className="btn btn-danger btn-block">
+                    <button className="btn btn-danger btn-block" onClick={this.deleteBookItem}>
                         <i className="glyphicon glyphicon-trash"></i>
                         <span> Delete Book</span>
                     </button>
