@@ -15,7 +15,8 @@ export function cartReducers(state={cart:[]}, action) {
           ...state, 
           cart: action.payload,
           totalAmount:totals(action.payload).price,
-          totalQty: totals(action.payload).qty
+          totalQty: totals(action.payload).qty,
+          msg: `${action.payload[0].title} was added to your shopping cart!`
         }
         break;
     case "UPDATE_CART":

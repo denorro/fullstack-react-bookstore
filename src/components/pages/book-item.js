@@ -17,6 +17,7 @@ class BookItem extends React.Component{
 
     handleCart = () => {
         const book = [...this.props.cart, {
+            key: this.props.key,
             _id: this.props._id,
             title: this.props.title,
             description: this.props.description,
@@ -37,12 +38,12 @@ class BookItem extends React.Component{
         }
         else {
             this.props.addToCart(book);
-        }        
+        }    
     }
     
     render(){
         return(
-            <div className="col-xs-12 col-md-6" key={this.props._id}>
+            <div className="col-xs-12 col-md-6" key={this.props.key}>
                 <div className="well">
                     <h2 className="text-center">{this.props.title}</h2>
                     <h2 className="text-center">{this.props.description}</h2>

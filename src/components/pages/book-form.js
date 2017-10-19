@@ -6,6 +6,16 @@ import {findDOMNode} from 'react-dom';
 class BookForm extends React.Component{
 
     handleSubmit = () => {
+
+        let title = findDOMNode(this.refs.title).value;
+        let description = findDOMNode(this.refs.description).value;
+        let price = findDOMNode(this.refs.price).value;
+
+        if(title === '' || description === '' || price === ''){
+            alert('A book needs a title, description, and price before it can be uploaded!');
+            return;
+        }
+
         const book = [
             {
                 title: findDOMNode(this.refs.title).value,

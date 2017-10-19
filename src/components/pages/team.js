@@ -1,0 +1,32 @@
+import React from 'react';
+
+const Team = () => (
+    <div>
+        <div className="page-header">
+            <h1 className="text-center"> Team</h1>
+        </div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.Proin sagittis diam sed felis consequat mollis.In eget eleifend libero.Aenean libero orci, cursus quis molestie accumsan, mattis ultrices turpis.Aliquam cursus quam libero, eget feugiat nisl aliquet vel.Donec convallis, lorem eget interdum tincidunt, sem justo eleifend massa, at pretium dolor nibh sit amet diam.Aliquam porta, eros at condimentum maximus, quam eros euismod mi, ac posuere dui odio a quam.Sed posuere orci nec tellus pulvinar, sed tincidunt nunc consequat.Vivamus elementum est sapien, eget dignissim purus elementum id.Maecenas volutpat molestie condimentum.Sed eleifend ultricies posuere.Nulla eget cursus lorem, semper malesuada erat.Morbi posuere gravida mi vitae viverra.
+
+            Aliquam metus mauris, auctor at magna a, faucibus venenatis augue.Pellentesque congue ultrices leo eu convallis.Maecenas luctus dolor dolor, vel lobortis felis tempor in .Mauris pulvinar venenatis odio.Mauris sit amet quam tristique, cursus neque ut, sagittis libero.Proin molestie ante et nunc condimentum tempus.Donec fermentum quam eget nulla ultrices placerat.
+
+            Suspendisse aliquam, magna blandit malesuada lobortis, tortor ex dictum tellus, eget elementum turpis nulla vitae sapien.Morbi ultrices nec libero eu tempus.Donec ligula turpis, ultrices ut sodales non, ultricies egestas diam.Aenean congue, mauris tempor ultricies commodo, arcu enim eleifend orci, ac tincidunt nunc eros eu mauris.Quisque vitae varius enim.Duis et lacinia lorem.Maecenas ligula libero, congue in malesuada sed, laoreet vel mauris.Suspendisse potenti.
+
+            Interdum et malesuada fames ac ante ipsum primis in faucibus.Praesent rhoncus viverra nisi at euismod.Fusce at fermentum ligula.Nulla vehicula consectetur mauris, in fringilla est tristique pellentesque.Phasellus ac hendrerit augue.Aliquam aliquam ultrices velit, pharetra commodo mauris rhoncus ut.Duis ut suscipit orci.Quisque leo nisl, commodo vel sapien id, tempor sagittis neque.Duis ac nunc at massa sagittis pellentesque quis eget diam.Nunc pulvinar odio accumsan suscipit eleifend.Praesent lacinia orci ac finibus efficitur.Nulla vitae facilisis libero.Nunc cursus justo ut pulvinar tempor.Suspendisse in diam dignissim, dapibus justo non, pharetra lorem.
+
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Praesent ex tellus, consectetur in libero in , egestas vehicula mi.Sed fermentum gravida neque, vel dapibus odio.Mauris vel risus mauris.Aenean tempus faucibus tincidunt.Quisque vehicula libero quis mauris molestie tincidunt.Aenean maximus in ex eu vestibulum.Suspendisse est purus, rhoncus nec urna eget, consectetur mollis sem.Vivamus id tortor elit.Sed nec massa sapien.Duis imperdiet erat neque, vitae viverra enim varius vitae.Cras dapibus eros ex, sed dignissim quam imperdiet a.Duis ut tristique felis, eget venenatis ligula.Vivamus interdum dolor sed elit cursus congue.Phasellus egestas, libero in finibus egestas, magna metus convallis eros, eget auctor nisi turpis in eros.Curabitur mollis risus metus, quis pretium enim ornare nec.
+
+            Pellentesque sed nibh eleifend, ornare enim sit amet, volutpat dolor.Morbi mattis nunc quis lectus laoreet varius.Etiam posuere consectetur blandit.Aenean vitae erat ut metus lacinia posuere.Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+            Integer diam lacus, aliquet quis pharetra sit amet, bibendum vel lorem.In ex lacus, sagittis eget eros a, rutrum feugiat diam.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Vestibulum porta lorem in blandit semper.Quisque vulputate nisi metus, eu viverra velit auctor nec.In convallis viverra augue, vel sodales diam consequat a.Integer non sodales dui.Cras iaculis, urna ultricies commodo maximus, urna quam molestie orci, id lobortis libero eros vitae libero.Quisque rutrum convallis magna, et cursus est rutrum id.Suspendisse ac pharetra ipsum.
+
+            Sed sagittis faucibus elit non convallis.Donec velit ante, volutpat vitae mollis ac, rhoncus porttitor mi.Nullam accumsan nisi in ante fringilla efficitur.Proin in nunc non nunc pellentesque pulvinar.Aenean ultrices est ut metus commodo blandit.Nullam mattis pharetra mi a imperdiet.Vivamus ultricies leo quis dolor malesuada, in rhoncus dolor congue.Ut erat risus, maximus quis pretium nec, efficitur non metus.Phasellus mollis semper lectus nec pellentesque.In hac habitasse platea dictumst.
+
+            In sit amet est lorem.Curabitur pulvinar diam lorem, a iaculis erat placerat vitae.Suspendisse viverra libero eget orci commodo gravida.Etiam placerat fringilla justo sit amet tempus.Integer id nisl dapibus tellus placerat placerat ut ut metus.Nullam venenatis risus et metus ultricies ornare.Etiam ultrices urna at luctus bibendum.Aenean condimentum nibh quis augue condimentum consequat.Morbi suscipit lorem in iaculis pellentesque.Nulla erat purus, viverra lacinia est id, sodales lobortis ex.Duis posuere aliquam elementum.Morbi maximus pretium eros nec ornare.Ut a quam gravida, scelerisque elit nec, fermentum ipsum.
+
+            Maecenas luctus sapien in tincidunt porta.Ut facilisis hendrerit euismod.Donec blandit, dolor ut viverra laoreet, justo magna euismod urna, sit amet tempus libero dolor non ante.Pellentesque vel ultrices purus.Duis sit amet metus porttitor, porttitor mauris vel, faucibus purus.Sed efficitur sodales ipsum quis faucibus.Nunc dapibus dolor quis nunc placerat, sed venenatis nisi rutrum.Maecenas placerat erat id tortor pellentesque cursus.Fusce faucibus eget tellus eget pellentesque.
+
+            Suspendisse ac sodales erat.Quisque vitae eleifend turpis, quis convallis lacus.Etiam id dictum erat.Ut nec lorem lacinia, euismod neque eget, euismod felis.In luctus ex purus, in malesuada dolor vulputate a.Fusce molestie urna vehicula lectus eleifend, eget posuere ligula tempus.Praesent dictum porttitor felis.Vestibulum lobortis accumsan leo ac euismod.Morbi a justo dui.Sed maximus interdum accumsan.
+</p>
+    </div>
+)
+export default Team;

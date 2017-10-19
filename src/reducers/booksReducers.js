@@ -1,5 +1,4 @@
 "use strict"
-//BOOKS REDUCERS
 let defaultBooks = [
   {
     _id: 1,
@@ -55,7 +54,7 @@ export function booksReducers(state = { books: defaultBooks }, action){
 
     case "DELETE_BOOK":
         const bookId = action.payload;
-        return { books: state.books.filter(book => book._id !== bookId) }
+        return { ...state, books: state.books.filter(book => book._id !== bookId) }
 
     case "UPDATE_BOOK":
         const currentBookToUpdate = [...state.books]
@@ -68,9 +67,6 @@ export function booksReducers(state = { books: defaultBooks }, action){
           ...currentBookToUpdate[indexToUpdate],
           title: action.payload.title
         }
-        // This Log has the purpose to show you how newBookToUpdate looks like
-        console.log("what is it newBookToUpdate", newBookToUpdate);
-        //use slice to remove the book at the specified index, replace with the new object and concatenate witht he rest of items in the array
         return {
           books: [...currentBookToUpdate.slice(0, indexToUpdate), newBookToUpdate, ...currentBookToUpdate.slice(indexToUpdate + 1)]
         }

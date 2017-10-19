@@ -43,9 +43,17 @@ class BookList extends React.Component {
                     <h1 className="text-center">The React BookStore</h1>
                 </div>
                 { this.props.msg &&
-                    <div className="alert alert-info text-center" role="alert">{this.props.msg}</div>
-                }                
-                <Cart />                
+                    <div className="alert alert-info text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>{this.props.msg}</strong>
+                    </div>
+                }     
+                { this.props.cartMsg &&
+                    <div className="alert alert-info text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>{this.props.cartMsg}</strong>
+                    </div>
+                }                            
                 <div className="row">
                     <div className="col-xs-12 col-sm-8">
                         <div className="row">
@@ -65,7 +73,8 @@ class BookList extends React.Component {
 function mapStateToProps(state){
     return {        
         books: state.books.books,
-        msg: state.books.msg
+        msg: state.books.msg,
+        cartMsg: state.cart.msg
     }
 }
 

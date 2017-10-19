@@ -25,8 +25,6 @@ class Cart extends React.Component{
         }        
     }
 
-
-
     deleteItem(_id) {
         const cartCopy = this.props.cart;
         const indexToDelete = cartCopy.findIndex(
