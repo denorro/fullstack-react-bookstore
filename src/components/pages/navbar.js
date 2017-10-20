@@ -34,7 +34,7 @@ class Navbar extends Component {
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
                         <li>
-                            <Link to="/cart">Cart</Link>
+                            <Link to="/cart">Cart   <span className="badge">{this.props.cartCount}</span></Link>
                         </li>
                     </ul>
                 </div>
@@ -42,6 +42,8 @@ class Navbar extends Component {
         </nav>
         )
     }
-
+}
+Navbar.defaultProps = {
+    cartCount: 0
 }
 export default Navbar;

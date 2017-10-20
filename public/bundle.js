@@ -571,6 +571,25 @@ if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' 
 
 /***/ }),
 /* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(70);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
+
+
+
+
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -664,25 +683,6 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 	return to;
 };
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(70);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
-
-
-
-
 
 
 /***/ }),
@@ -3531,7 +3531,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _redux = __webpack_require__(7);
 
@@ -3824,7 +3824,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(28);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _redux = __webpack_require__(7);
 
@@ -3871,7 +3871,7 @@ var store = (0, _redux.createStore)(_index2.default, middleware);
  This source code is licensed under the MIT license found in the
  LICENSE file in the root directory of this source tree.
 */
-var f=__webpack_require__(8),p=__webpack_require__(12);__webpack_require__(6);var r=__webpack_require__(5);
+var f=__webpack_require__(9),p=__webpack_require__(12);__webpack_require__(6);var r=__webpack_require__(5);
 function t(a){for(var b=arguments.length-1,d="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,e=0;e<b;e++)d+="\x26args[]\x3d"+encodeURIComponent(arguments[e+1]);b=Error(d+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var u={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function v(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}v.prototype.isReactComponent={};v.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?t("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};v.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function w(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}function x(){}x.prototype=v.prototype;var y=w.prototype=new x;y.constructor=w;f(y,v.prototype);y.isPureReactComponent=!0;function z(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}var A=z.prototype=new x;A.constructor=z;f(A,v.prototype);A.unstable_isAsyncReactComponent=!0;A.render=function(){return this.props.children};
@@ -3908,7 +3908,7 @@ if (process.env.NODE_ENV !== "production") {
 
 'use strict';
 
-var objectAssign$1 = __webpack_require__(8);
+var objectAssign$1 = __webpack_require__(9);
 var require$$0 = __webpack_require__(13);
 var emptyObject = __webpack_require__(12);
 var invariant = __webpack_require__(6);
@@ -5608,7 +5608,7 @@ module.exports = ReactEntry;
  LICENSE file in the root directory of this source tree.
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(0);__webpack_require__(6);var l=__webpack_require__(17),n=__webpack_require__(8),ba=__webpack_require__(29),ca=__webpack_require__(5),da=__webpack_require__(12),ea=__webpack_require__(30),fa=__webpack_require__(31),ha=__webpack_require__(32),ia=__webpack_require__(33);
+var aa=__webpack_require__(0);__webpack_require__(6);var l=__webpack_require__(17),n=__webpack_require__(9),ba=__webpack_require__(29),ca=__webpack_require__(5),da=__webpack_require__(12),ea=__webpack_require__(30),fa=__webpack_require__(31),ha=__webpack_require__(32),ia=__webpack_require__(33);
 function w(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:w("227");
 function ja(a){switch(a){case "svg":return"http://www.w3.org/2000/svg";case "math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}
 var ka={Namespaces:{html:"http://www.w3.org/1999/xhtml",mathml:"http://www.w3.org/1998/Math/MathML",svg:"http://www.w3.org/2000/svg"},getIntrinsicNamespace:ja,getChildNamespace:function(a,b){return null==a||"http://www.w3.org/1999/xhtml"===a?ja(b):"http://www.w3.org/2000/svg"===a&&"foreignObject"===b?"http://www.w3.org/1999/xhtml":a}},la=null,oa={};
@@ -5936,7 +5936,7 @@ if (process.env.NODE_ENV !== "production") {
 var react = __webpack_require__(0);
 var invariant = __webpack_require__(6);
 var ExecutionEnvironment = __webpack_require__(17);
-var _assign = __webpack_require__(8);
+var _assign = __webpack_require__(9);
 var EventListener = __webpack_require__(29);
 var require$$0 = __webpack_require__(13);
 var hyphenateStyleName = __webpack_require__(60);
@@ -23377,7 +23377,7 @@ module.exports = performance || {};
 var emptyFunction = __webpack_require__(5);
 var invariant = __webpack_require__(6);
 var warning = __webpack_require__(13);
-var assign = __webpack_require__(8);
+var assign = __webpack_require__(9);
 
 var ReactPropTypesSecret = __webpack_require__(16);
 var checkPropTypes = __webpack_require__(15);
@@ -25291,7 +25291,7 @@ function cartReducers() {
         cart: action.payload,
         totalAmount: totals(action.payload).price,
         totalQty: totals(action.payload).qty,
-        msg: action.payload[0].title + " was added to your shopping cart!"
+        msg: action.payload[action.payload.length - 1].title + " was added to your shopping cart!"
       });
       break;
     case "UPDATE_CART":
@@ -25308,7 +25308,8 @@ function cartReducers() {
       return _extends({}, state, {
         cart: updatedCart,
         totalAmount: totals(updatedCart).price,
-        totalQty: totals(updatedCart).qty
+        totalQty: totals(updatedCart).qty,
+        msg: cartItemToUpdate.title + " was updated in your shopping cart!"
       });
       break;
     case "DELETE_CART_ITEM":
@@ -28342,6 +28343,8 @@ var _cart2 = _interopRequireDefault(_cart);
 
 var _reactRouterDom = __webpack_require__(21);
 
+var _reactRedux = __webpack_require__(8);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28368,7 +28371,7 @@ var MainApp = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_navbar2.default, null)
+                    _react2.default.createElement(_navbar2.default, { cartCount: this.props.totalQty })
                 ),
                 _react2.default.createElement(
                     'div',
@@ -28376,11 +28379,12 @@ var MainApp = function (_React$Component) {
                     _react2.default.createElement(
                         _reactRouterDom.Switch,
                         null,
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _bookList2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contact', component: _contact2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/about', component: _about2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/team', component: _team2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/cart', component: _cart2.default })
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/', exact: true, component: _bookList2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/contact', component: _contact2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _about2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/team', component: _team2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/cart', component: _cart2.default }),
+                        _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' })
                     )
                 )
             );
@@ -28390,7 +28394,12 @@ var MainApp = function (_React$Component) {
     return MainApp;
 }(_react2.default.Component);
 
-exports.default = MainApp;
+function mapStateToProps(state) {
+    return {
+        totalQty: state.cart.totalQty
+    };
+}
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(MainApp));
 
 /***/ }),
 /* 122 */
@@ -28409,7 +28418,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _redux = __webpack_require__(7);
 
@@ -28488,7 +28497,7 @@ var BookList = function (_React$Component) {
                     { className: 'alert alert-info text-center', role: 'alert' },
                     _react2.default.createElement(
                         'button',
-                        { type: 'button', 'class': 'close', 'data-dismiss': 'alert', 'aria-label': 'Close' },
+                        { type: 'button', className: 'close', 'data-dismiss': 'alert', 'aria-label': 'Close' },
                         _react2.default.createElement(
                             'span',
                             { 'aria-hidden': 'true' },
@@ -28506,7 +28515,7 @@ var BookList = function (_React$Component) {
                     { className: 'alert alert-info text-center', role: 'alert' },
                     _react2.default.createElement(
                         'button',
-                        { type: 'button', 'class': 'close', 'data-dismiss': 'alert', 'aria-label': 'Close' },
+                        { type: 'button', className: 'close', 'data-dismiss': 'alert', 'aria-label': 'Close' },
                         _react2.default.createElement(
                             'span',
                             { 'aria-hidden': 'true' },
@@ -28581,7 +28590,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _redux = __webpack_require__(7);
 
@@ -28722,7 +28731,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _redux = __webpack_require__(7);
 
@@ -29065,7 +29074,12 @@ var Navbar = function (_Component) {
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
                                     { to: '/cart' },
-                                    'Cart'
+                                    'Cart   ',
+                                    _react2.default.createElement(
+                                        'span',
+                                        { className: 'badge' },
+                                        this.props.cartCount
+                                    )
                                 )
                             )
                         )
@@ -29078,6 +29092,9 @@ var Navbar = function (_Component) {
     return Navbar;
 }(_react.Component);
 
+Navbar.defaultProps = {
+    cartCount: 0
+};
 exports.default = Navbar;
 
 /***/ })

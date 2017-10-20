@@ -5,26 +5,34 @@ import Contact from './contact';
 import Team from './team';
 import Navbar from './navbar';
 import Cart from './cart';
-import {Switch, Route} from 'react-router-dom';
+import {withRouter, Switch, Route, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 
-export default class MainApp extends React.Component {
+class MainApp extends React.Component {
     
     render(){
         return (
             <section>
                 <div>
-                    <Navbar />
+                    <Navbar cartCount={this.props.totalQty}/>
                 </div>
                 <div className="container">
                     <Switch>
-                        <Route exact path="/" component={BookList} />
-                        <Route exact path="/contact" component={Contact} />
-                        <Route exact path="/about" component={About} />
-                        <Route exact path="/team" component={Team} />
-                        <Route exact path="/cart" component={Cart} />
+                        <Route path="/" exact component={BookList} />
+                        <Route path="/contact" component={Contact} />
+                        <Route path="/about" component={About} />
+                        <Route path="/team" component={Team} />
+                        <Route path="/cart" component={Cart} />
+                        <Redirect to="/" />
                     </Switch>
                 </div>
             </section>            
         )
     }
 }
+function mapStateToProps(state){
+    return {
+        totalQty: state.cart.totalQty
+    }
+}
+export default withRouter(connect(mapStateToProps)(MainApp));

@@ -17,8 +17,7 @@ render(
     <Provider store={store}>
         <BrowserRouter history={browserHistory}>
             <MainApp/>
-        </BrowserRouter>
-        
+        </BrowserRouter>        
     </Provider>, 
     document.getElementById('app')
 );

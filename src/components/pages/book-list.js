@@ -44,13 +44,13 @@ class BookList extends React.Component {
                 </div>
                 { this.props.msg &&
                     <div className="alert alert-info text-center" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" className="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <strong>{this.props.msg}</strong>
                     </div>
                 }     
                 { this.props.cartMsg &&
                     <div className="alert alert-info text-center" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" className="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <strong>{this.props.cartMsg}</strong>
                     </div>
                 }                            
